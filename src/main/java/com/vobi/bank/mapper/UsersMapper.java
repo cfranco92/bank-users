@@ -8,14 +8,15 @@ import org.mapstruct.Mapping;
 import com.vobi.bank.domain.Users;
 import com.vobi.bank.dto.UsersDTO;
 
+@Mapper
 public interface UsersMapper {
-	@Mapping(source = "documentType.dotyId", target = "dotyId")
+	@Mapping(source = "userType.ustyId", target = "ustyId")
 	public UsersDTO usersToUsersDTO(Users users);
 
 	@Mapping(target = "userType.ustyId", source = "ustyId")
-	public Users usersDTOtoUsers(UsersDTO userDTO);
+	public Users usersDTOtoUsers(UsersDTO usersDTO);
 
 	public List<UsersDTO> usersListToUsersDTOList(List<Users> users);
 
-	public List<Users> userDTOListToUsersList(List<UsersDTO> customerDTOs);
+	public List<Users> userDTOListToUsersList(List<UsersDTO> usersDTOs);
 }
